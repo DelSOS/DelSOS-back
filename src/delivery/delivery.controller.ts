@@ -54,10 +54,12 @@ export class DeliveryController {
         return await this.deliveryService.getDeliveriesByStoreId(store._id);
 
     }
-    @Get('all/unaffected')
+    @Get('unaffected')
     @UseGuards(JwtAuthGuard)
     async getAllUnaffectedDeliveries(
     ) {
+        console.log("hallo");
+        
         return await this.deliveryService.getAllUnaffactedDeliveries();
     }
     // get the deliveris that have been delivered
@@ -123,7 +125,6 @@ export class DeliveryController {
     async getShopperDeliveries(
         @GetUser() shopper,
         @Query() { skip, limit }: PaginationParams
-
     ) {
         return await this.deliveryService.getDeliveriesByShopperId(shopper._id, skip, limit);
     }

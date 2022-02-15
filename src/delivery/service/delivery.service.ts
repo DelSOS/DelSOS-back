@@ -53,6 +53,8 @@ export class DeliveryService {
     }
     async getAllUnaffactedDeliveries() {
         const deliveries= this.deliveryModel.find({status: DELIVERY_STATUS.PENDING});
+        console.log(deliveries);
+        
         return deliveries;
     }
 
