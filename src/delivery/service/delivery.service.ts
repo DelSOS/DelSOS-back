@@ -155,10 +155,14 @@ export class DeliveryService {
 
     // lets the shopper add stracking history to the delivery
     async addTrackingData(shopperId, addTrackingDTO: AddTrackingDTO) {
+        console.log("hallo");
+        
         const delivery = await this.isUpdatableByUser(shopperId,
             ROLE.shopper, addTrackingDTO.deliveryId)
         if (delivery) {
             addTrackingDTO.tracking.date = new Date();
+            console.log(addTrackingDTO.tracking );
+            
             delivery.trackingHistory.push(addTrackingDTO.tracking)
         }
         return await this.deliveryModel.updateOne({ _id: delivery._id }, delivery).exec();

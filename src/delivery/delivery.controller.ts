@@ -176,6 +176,8 @@ export class DeliveryController {
         if (shopper.role != ROLE.shopper) {
             throw new UnauthorizedException('This route can only be accessed by a shopper');
         }
+        console.log("hallooooooooooo");
+        
         return await this.deliveryService.addTrackingData(shopper._id, addTrackingData);
     }
 
