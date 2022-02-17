@@ -122,7 +122,7 @@ export class StoreService {
       if (!mail) return 'mail not sent';
       console.log(store);
       
-      await this.storeModel.findByIdAndUpdate(store._id,{status:STATUS.activated});
+      await this.storeModel.findByIdAndUpdate(store._id,{status:STATUS.activated,password:hashedPassword});
       //throw new Exception('mail not sent')
       return store;
     } else {
